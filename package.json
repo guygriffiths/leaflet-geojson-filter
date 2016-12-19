@@ -27,7 +27,8 @@
   "jspm": {
     "dependencies": {
       "jquery": "npm:jquery@^3.1.1",
-      "leaflet": "github:Leaflet/Leaflet@^1.0.2"
+      "leaflet": "github:Leaflet/Leaflet@^1.0.2",
+      "css": "github:systemjs/plugin-css@^0.1.32"
     },
     "devDependencies": {}
   }
