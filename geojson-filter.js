@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import L from 'leaflet'
 import './css/geojson-filter.css!'
 
@@ -17,7 +16,7 @@ export default L.Control.extend({
         this.holder = L.DomUtil.create('div', 'geojson-filter leaflet-bar leaflet-control leaflet-control-custom');
         if(!map.hasLayer(this.layer)) {
             /* Hide the filter box if the layer is not yet visible */
-            $(this.holder).hide();
+            this.holder.display = 'none';
         }
         /* We don't want click events to interact with the map */
         L.DomEvent.disableClickPropagation(this.holder);
@@ -86,12 +85,12 @@ export default L.Control.extend({
         map.on({
             overlayadd: function (e) {
                 if (e.layer === layer) {
-                    $(holder).show();
+                    holder.display = '';
                 };
             },
             overlayremove: function (e) {
                 if (e.layer === layer) {
-                    $(holder).hide();
+                    holder.display = 'none';
                 };
             }
         });
@@ -99,9 +98,9 @@ export default L.Control.extend({
         return this.holder;
     },
     show: function () {
-        $(this.holder).show();
+        this.holder.display = '';
     },
     hide: function () {
-        $(this.holder).hide();
+        this.holder.display = 'none';
     },
 });
