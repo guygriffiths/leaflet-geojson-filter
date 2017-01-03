@@ -16,7 +16,7 @@ export default L.Control.extend({
         this.holder = L.DomUtil.create('div', 'geojson-filter leaflet-bar leaflet-control leaflet-control-custom');
         if(!map.hasLayer(this.layer)) {
             /* Hide the filter box if the layer is not yet visible */
-            this.holder.display = 'none';
+            this.holder.style.display = 'none';
         }
         /* We don't want click events to interact with the map */
         L.DomEvent.disableClickPropagation(this.holder);
@@ -85,12 +85,12 @@ export default L.Control.extend({
         map.on({
             overlayadd: function (e) {
                 if (e.layer === layer) {
-                    holder.display = '';
+                    holder.style.display = '';
                 };
             },
             overlayremove: function (e) {
                 if (e.layer === layer) {
-                    holder.display = 'none';
+                    holder.style.display = 'none';
                 };
             }
         });
@@ -98,9 +98,9 @@ export default L.Control.extend({
         return this.holder;
     },
     show: function () {
-        this.holder.display = '';
+        this.holder.style.display = '';
     },
     hide: function () {
-        this.holder.display = 'none';
+        this.holder.style.display = 'none';
     },
 });
