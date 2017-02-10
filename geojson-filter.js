@@ -83,12 +83,12 @@ export default L.Control.extend({
         let layer = this.layer;
         let holder = this.holder;
         map.on({
-            overlayadd: function (e) {
+            layeradd: function (e) {
                 if (e.layer === layer) {
                     holder.style.display = '';
                 };
             },
-            overlayremove: function (e) {
+            layerremove: function (e) {
                 if (e.layer === layer) {
                     holder.style.display = 'none';
                 };
